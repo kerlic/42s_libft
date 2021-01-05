@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 17:17:05 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/01 15:06:18 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 00:45:19 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t count)
 {
-	char		*tmp;
-	const char	*s_tmp;
+	unsigned	char	*tmp;
+	const	char		*s_tmp;
 
 	tmp = dest;
 	s_tmp = src;

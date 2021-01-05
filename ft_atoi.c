@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 20:02:01 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/29 20:14:27 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 00:48:43 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int n;
-	int num;
+	long	int	n;
+	long	int num;
 
 	n = 1;
 	while (*str && ((9 <= *str && *str <= 13) || *str == 32))
