@@ -12,6 +12,16 @@
 
 #include "libft.h"
 
+void	ft_freestr(char **str, int idx)
+{
+	while (--idx >= 0)
+	{
+		free(*(--str));
+		free(str);
+	}
+	return ;
+}
+
 char* ft_subarray(char const* s, char c)
 {
 	int		cnt;
@@ -45,13 +55,13 @@ char	**ft_split(char const* s, char c)
 		return (0);
 	idx = 0;
 	if (*s != c && *s)
-		if (!(str[idx++] = ft_subarray(s++, c)))
-			while (--idx >= 0)
-				free(str[idx]);
+		if(!(str[idx++] = ft_subarray(s++, c)))
+			ft_freestr(&str[idx], idx);
 	while (*s)
 	{
 		if (*s == c && *(s + 1) != c && *(s + 1) != 0)
-			str[idx++] = ft_subarray(s, c);
+			if(!(str[idx++] = ft_subarray(s + 1, c)))
+				ft_freestr(&str[idx], idx);
 		s++;
 	}
 	str[idx] = 0;
