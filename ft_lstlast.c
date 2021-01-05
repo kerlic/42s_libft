@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 02:02:01 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/30 03:32:47 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/05 22:14:32 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ t_list	*ft_lstlast(t_list *lst)
 		return (0);
 	current = lst;
 	while (current->next)
-		current = current->next;		
+		current = current->next;
 	return (current);
 }

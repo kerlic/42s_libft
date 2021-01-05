@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 17:59:00 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/29 18:40:42 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/05 22:28:19 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	void	putnum(int n, int fd)
 	write(fd, &"0123456789"[n % 10], 1);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	if (fd < 0)
 		return ;

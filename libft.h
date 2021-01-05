@@ -6,21 +6,20 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 22:15:54 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/01 03:22:23 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/05 22:32:13 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBFT_H
-#define	LIBFT_H
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <stdlib.h>
+# include <unistd.h>
 
-#include <stdlib.h>
-#include <unistd.h>
-
-typedef struct		s_list
+typedef	struct	s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}				t_list;
 
 char			*ft_itoa(int nbr);
 int				ft_atoi(const char *str);
@@ -69,6 +68,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 int				ft_lstsize(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
+				void (*del)(void *));
 
 #endif

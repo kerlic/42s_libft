@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 04:25:57 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/28 04:25:57 by ilsong           ###   ########.fr       */
+/*   Created: 2021/01/05 22:32:56 by ilsong            #+#    #+#             */
+/*   Updated: 2021/01/05 22:32:56 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_freestr(char **str, int idx)
+static	void	ft_freestr(char **str, int idx)
 {
 	while (--idx >= 0)
 	{
@@ -22,11 +22,11 @@ void	ft_freestr(char **str, int idx)
 	return ;
 }
 
-char* ft_subarray(char const* s, char c)
+static	char	*ft_subarray(char const *s, char c)
 {
 	int		cnt;
-	char* subarr;
-	char* ptr;
+	char	*subarr;
+	char	*ptr;
 
 	cnt = 0;
 	while (s[cnt] != c && s[cnt])
@@ -40,7 +40,7 @@ char* ft_subarray(char const* s, char c)
 	return (ptr);
 }
 
-char	**ft_split(char const* s, char c)
+char			**ft_split(char const *s, char c)
 {
 	int		idx;
 	int		cnt;
@@ -55,14 +55,16 @@ char	**ft_split(char const* s, char c)
 		return (0);
 	idx = 0;
 	if (*s != c && *s)
-		if(!(str[idx++] = ft_subarray(s++, c)))
-			ft_freestr(&str[idx], idx);
-	while (*s)
+		if (!(str[idx++] = ft_subarray(s++, c)))
+			cnt = -1;
+	while (*s++)
+		if (*(s - 1) == c && *s != c && *s != 0)
+			if (!(str[idx++] = ft_subarray(s, c)))
+				cnt = -1;
+	if (cnt == -1)
 	{
-		if (*s == c && *(s + 1) != c && *(s + 1) != 0)
-			if(!(str[idx++] = ft_subarray(s + 1, c)))
-				ft_freestr(&str[idx], idx);
-		s++;
+		ft_freestr(&str[idx], idx);
+		return (0);
 	}
 	str[idx] = 0;
 	return (str);

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/28 01:56:48 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/28 01:56:48 by ilsong           ###   ########.fr       */
+/*   Created: 2021/01/05 21:36:17 by ilsong            #+#    #+#             */
+/*   Updated: 2021/01/05 21:36:17 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int is_set(char const *s1, char const *set)
+static	int	is_set(char const *s1, char const *set)
 {
 	while (*set)
 		if (*s1 == *set++)
@@ -20,11 +20,11 @@ static int is_set(char const *s1, char const *set)
 	return (0);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
-	size_t len_s1;
-	size_t idx;
-	char *trmd_str;
+	size_t		len_s1;
+	size_t		idx;
+	char		*trmd_str;
 
 	len_s1 = ft_strlen(s1);
 	trmd_str = (char *)malloc(sizeof(char) * (len_s1 + 1));

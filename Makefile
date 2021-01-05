@@ -62,7 +62,6 @@ FILES =	ft_memset \
 
 #OBJS = $(SRCS:%.o:%.c)
 
-
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
@@ -71,13 +70,8 @@ OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
-
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c -o $@ $<
-
-#so:
-	#$(CC) -fPIC -c $(CFLAGS) $(SRCS)
-	#gcc -shared -o libft.so $(OBJS)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^

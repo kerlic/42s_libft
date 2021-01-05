@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 00:13:14 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/29 22:09:52 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/05 21:58:03 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strrchr(const char *str, int ch)
 	int n;
 
 	n = 0;
-
 	while (*str++)
 		n++;
 	while (n-- >= 0)

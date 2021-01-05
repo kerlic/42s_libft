@@ -6,13 +6,11 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:48:39 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/31 03:44:13 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/05 22:12:53 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -25,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	ptr = nlst;
 	lst = lst->next;
 	while (lst)
-	{	
+	{
 		nlst->next = ft_lstnew((*f)(lst->content));
 		nlst = nlst->next;
 		lst = lst->next;

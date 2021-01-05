@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/29 12:41:45 by ilsong            #+#    #+#             */
-/*   Updated: 2020/12/29 14: 3:21by ilsong           ###   ########.fr       */
+/*   Created: 2021/01/05 22:28:37 by ilsong            #+#    #+#             */
+/*   Updated: 2021/01/05 22:28:38 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	int	ft_intlen(int nbr)
 	return (len);
 }
 
-char    *ft_itoa(int nbr)
+char		*ft_itoa(int nbr)
 {
 	int					len;
 	char				*str;
@@ -46,7 +46,7 @@ char    *ft_itoa(int nbr)
 		str[--len] = (l_nbr % 10) + '0';
 		l_nbr /= 10;
 		if (l_nbr == 0)
-			return (str);	
+			return (str);
 	}
 	return (0);
 }
