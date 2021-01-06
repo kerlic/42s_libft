@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:36:17 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 21:10:23 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 21:18:20 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	size_t	ft_trmlen(char const *s1, char const *set)
 {
 	char	const	*start;
 	char	const	*end;
-	
+
 	while (is_set(s1++, set))
 		;
 	if (*(s1 - 1) == '\0')
@@ -47,7 +47,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	if (!trlen)
 		return ("");
 	if (!(trmd_str = (char *)malloc(sizeof(char) * (trlen + 2))))
-			return (0);
+		return (0);
 	while (is_set(s1, set))
 		++s1;
 	ft_memmove(trmd_str, s1, trlen + 1);
