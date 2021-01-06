@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:36:17 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 16:28:52 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 16:53:36 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static	size_t	ft_trmlen(char const *s1,char const *set)
 
 	while (is_set(s1++, set))
 		;
-	start = s1;
+	start = s1 - 1;
 	while (*s1)
 		s1++;
 	while (is_set(--s1, set))
 		;
-	end = s1 + 1;
+	end = s1;
 	return ((size_t)(end - start));;
 }
 
