@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 22:32:56 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 19:56:32 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/07 03:27:11 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ static	char	*ft_subarray(char const *s, char c)
 	return (ptr);
 }
 
+static	int		ft_cnt(char const *s, char c)
+{
+	int		idx;
+	int		cnt;
+
+	idx = 0;
+	cnt = 0;
+	while (s[idx++])
+		if ((s[idx] == c && s[idx - 1] != c)
+		|| (s[idx] == 0 && s[idx - 1] != c))
+			cnt++;
+	return (cnt);
+}
+
 char			**ft_split(char const *s, char c)
 {
 	int		idx;
@@ -47,11 +61,8 @@ char			**ft_split(char const *s, char c)
 	char	**str;
 
 	idx = 0;
-	cnt = 0;
-	while (s[idx])
-		if (s[idx++] == c)
-			cnt++;
-	if (!(str = (char**)malloc(sizeof(char*) * (cnt + 2))))
+	cnt = ft_cnt(s, c);
+	if (!(str = (char**)malloc(sizeof(char*) * (cnt + 1))))
 		return (0);
 	idx = 0;
 	if (*s != c && *s)
@@ -62,7 +73,10 @@ char			**ft_split(char const *s, char c)
 			if (!(str[idx++] = ft_subarray(s, c)))
 				cnt = -1;
 	if (cnt == -1)
+	{
 		ft_freestr(&str[idx], idx);
+		return (0);
+	}
 	str[idx] = 0;
 	return (str);
 }
