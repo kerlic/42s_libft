@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 17:17:05 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 03:03:03 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 19:54:36 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t count)
 	}
 	return (0);
 }
-

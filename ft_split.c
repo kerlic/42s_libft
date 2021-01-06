@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 22:32:56 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 00:22:07 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 19:56:32 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,7 @@ char			**ft_split(char const *s, char c)
 			if (!(str[idx++] = ft_subarray(s, c)))
 				cnt = -1;
 	if (cnt == -1)
-	{
 		ft_freestr(&str[idx], idx);
-		return (0);
-	}
 	str[idx] = 0;
 	return (str);
 }
