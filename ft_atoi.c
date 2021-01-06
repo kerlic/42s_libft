@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 20:02:01 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 01:11:34 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 03:57:44 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ft_atoi(const char *str)
 		num *= 10;
 		num = num + *str - '0';
 		str++;
+		if (num > 2147483646 && n == 1)
+			return (-2);
+		if (num > 2147483647 && n == -1)
+			return (-1);
 	}
-	if (num > 2147483647 && n == 1)
-		return (-1);
-	if (num > 2147483648 && n == -1)
-		return (0);
 	return (n * num);
 }

@@ -6,7 +6,7 @@
 /*   By: ilsong <ilsong@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 21:36:17 by ilsong            #+#    #+#             */
-/*   Updated: 2021/01/06 00:22:24 by ilsong           ###   ########.fr       */
+/*   Updated: 2021/01/06 16:28:52 by ilsong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,33 @@ static	int	is_set(char const *s1, char const *set)
 	return (0);
 }
 
+static	size_t	ft_trmlen(char const *s1,char const *set)
+{
+	char	const* start;
+	char	const* end;
+
+	while (is_set(s1++, set))
+		;
+	start = s1;
+	while (*s1)
+		s1++;
+	while (is_set(--s1, set))
+		;
+	end = s1 + 1;
+	return ((size_t)(end - start));;
+}
+
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	size_t		len_s1;
-	size_t		idx;
 	char		*trmd_str;
 
-	len_s1 = ft_strlen(s1);
-	trmd_str = (char *)malloc(sizeof(char) * (len_s1 + 1));
-	if (trmd_str == 0)
+	len_s1 = ft_trmlen(s1, set);
+	if (!(trmd_str = (char *)malloc(sizeof(char) * (len_s1 + 2))))
 		return (0);
+	while(is_set(s1, set))
+		++s1;
 	ft_memmove(trmd_str, s1, len_s1 + 1);
-	idx = 1;
-	while (is_set(trmd_str + len_s1 - idx, set))
-		*(trmd_str + len_s1 - idx++) = 0;
-	idx = 0;
-	while (is_set(trmd_str, set))
-		ft_memmove(trmd_str, trmd_str + 1, len_s1);
-	return (trmd_str);
+	trmd_str[len_s1 + 1] = 0;
+	return (trmd_str);	
 }
