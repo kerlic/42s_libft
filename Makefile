@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES =	ft_memset \
+MADATORY =	ft_memset \
 		ft_bzero \
 		ft_memccpy \
 		ft_memcpy \
@@ -39,36 +39,26 @@ FILES =	ft_memset \
 		ft_putstr_fd \
 		ft_putendl_fd \
 		ft_putnbr_fd \
-		ft_lstnew \
-  		ft_lstsize \
-  		ft_lstlast \
-  		ft_lstadd_front \
-  		ft_lstadd_back \
-  		ft_lstclear \
-  		ft_lstdelone \
-  		ft_lstiter \
-  		ft_lstmap 
 
-
-#FILES_B = 	ft_lstnew_bonus \
-	  		ft_lstsize_bonus \
-	  		ft_lstlast_bonus \
-	  		ft_lstadd_front_bonus \
-	  		ft_lstadd_back_bonus \
-	  		ft_lstclear_bonus \
-	  		ft_lstdelone_bonus \
-	  		ft_lstiter_bonus \
-	  		ft_lstmap_bonus
+BONUS = 	ft_lstnew \
+	  		ft_lstsize \
+	  		ft_lstlast \
+	  		ft_lstadd_front \
+	  		ft_lstadd_back \
+	  		ft_lstclear \
+	  		ft_lstdelone \
+	  		ft_lstiter \
+	  		ft_lstmap
 
 #OBJS = $(SRCS:%.o:%.c)
 
 SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(MADATORY)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS)))
 
 OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(MADATORY)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(BONUS)))
 
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -89,4 +79,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: bonus all cle
+.PHONY: bonus all clean fclean re
